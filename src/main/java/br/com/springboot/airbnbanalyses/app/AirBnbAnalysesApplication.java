@@ -15,6 +15,7 @@ import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import br.com.springboot.airbnbanalyses.entities.AirBnbListings;
 import br.com.springboot.airbnbanalyses.sort.InsertionSort;
 import br.com.springboot.airbnbanalyses.sort.MergeSort;
+import br.com.springboot.airbnbanalyses.sort.QuickSort;
 import br.com.springboot.airbnbanalyses.sort.SelectionSort;
 
 public class AirBnbAnalysesApplication {
@@ -37,6 +38,7 @@ public class AirBnbAnalysesApplication {
             int host_id[] = new int[list.size()];
             int minimun_nights[] = new int[list.size()];
             int number_reviews[] = new int[list.size()];
+            int reviews_month[] = new int[list.size()];
             String neighbourhood_group[] = new String[list.size()];
             String neighbourhood[] = new String[list.size()];
             String host_name[] = new String[list.size()];
@@ -56,6 +58,7 @@ public class AirBnbAnalysesApplication {
             	host_id[j] = Integer.parseInt(i.getHost_id());
             	minimun_nights[j] = Integer.parseInt(i.getMinimum_nights());
             	number_reviews[j] = Integer.parseInt(i.getNumber_of_reviews());
+            	reviews_month[j] = Integer.parseInt(i.getNumber_of_reviews());
             	neighbourhood_group[j] = i.getNeighbourhood_group();
             	neighbourhood[j] = i.getNeighbourhood();
             	host_name[j] = i.getHost_name();
@@ -108,24 +111,7 @@ public class AirBnbAnalysesApplication {
             for (int i = 0; i < vetor.length; i++) {
             	vetorPriceMergeSort[i] = vetor[i];
             }
-            
-            System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-            System.out.println(id[0]);
-            System.out.println(vetorPriceMergeSort[0]);
-            System.out.println(availability_365[0]);
-            System.out.println(calculated_host[0]);
-            System.out.println(host_id[0]);
-            System.out.println(minimun_nights[0]);
-            System.out.println(number_reviews[0]);
-            System.out.println(neighbourhood_group[0]);
-            System.out.println(neighbourhood[0]);
-            System.out.println(host_name[0]);
-            System.out.println(last_review[0]);
-            System.out.println(name[0]);
-            System.out.println(room_type[0]);
-            System.out.println(longitude[0]);
-            System.out.println(latitude[0]);
-            
+                       
             //listings_price_mergeSort_medioCaso.csv
             int vetorAux[] = new int[vetorPriceMergeSort.length];
             int idAux[] = new int[id.length];
@@ -142,11 +128,11 @@ public class AirBnbAnalysesApplication {
             String room_typeAux[] = new String[room_type.length];
             double longitudeAux[] = new double[longitude.length];
             double latitudeAux[] = new double[latitude.length];
-            MergeSort.mergeSort(vetorPriceMergeSort, vetorAux, id, idAux, availability_365, availability_365Aux, 
+            /*MergeSort.mergeSort(vetorPriceMergeSort, vetorAux, id, idAux, availability_365, availability_365Aux, 
             		calculated_host, calculated_hostAux, host_id, host_idAux, minimun_nights, minimun_nightsAux,
             		number_reviews, number_reviewsAux, neighbourhood_group, neighbourhood_groupAux, neighbourhood, neighbourhoodAux, 
             		host_name, host_nameAux, last_review, last_reviewAux, name, nameAux, room_type, room_typeAux, 
-            		longitude, longitudeAux, latitude, latitudeAux, 0, vetorPriceMergeSort.length-1);
+            		longitude, longitudeAux, latitude, latitudeAux, 0, vetorPriceMergeSort.length-1);*/
             
             //listings_price_mergeSort_melhorCaso.csv
             int vetorAux2[] = new int[vetorPriceMergeSort.length];
@@ -164,11 +150,11 @@ public class AirBnbAnalysesApplication {
             String room_typeAux2[] = new String[room_type.length];
             double longitudeAux2[] = new double[longitude.length];
             double latitudeAux2[] = new double[latitude.length];
-            MergeSort.mergeSort(vetorPriceMergeSort, vetorAux2, id, idAux2, availability_365, availability_365Aux2, 
+            /*MergeSort.mergeSort(vetorPriceMergeSort, vetorAux2, id, idAux2, availability_365, availability_365Aux2, 
             		calculated_host, calculated_hostAux2, host_id, host_idAux2, minimun_nights, minimun_nightsAux2,
             		number_reviews, number_reviewsAux2, neighbourhood_group, neighbourhood_groupAux2, neighbourhood, neighbourhoodAux2, 
             		host_name, host_nameAux2, last_review, last_reviewAux2, name, nameAux2, room_type, room_typeAux2, 
-            		longitude, longitudeAux2, latitude, latitudeAux2, 0, vetorPriceMergeSort.length-1);
+            		longitude, longitudeAux2, latitude, latitudeAux2, 0, vetorPriceMergeSort.length-1);*/
             
             //listings_price_mergeSort_piorCaso.csv
             int vetorAux3[] = new int[vetorPriceMergeSort.length];
@@ -187,27 +173,62 @@ public class AirBnbAnalysesApplication {
             double longitudeAux3[] = new double[longitude.length];
             double latitudeAux3[] = new double[latitude.length];
             ordenarDecrescente(vetorPriceMergeSort);
-            MergeSort.mergeSort(vetorPriceMergeSort, vetorAux3, id, idAux3, availability_365, availability_365Aux3, 
+            /*MergeSort.mergeSort(vetorPriceMergeSort, vetorAux3, id, idAux3, availability_365, availability_365Aux3, 
             		calculated_host, calculated_hostAux3, host_id, host_idAux3, minimun_nights, minimun_nightsAux3,
             		number_reviews, number_reviewsAux3, neighbourhood_group, neighbourhood_groupAux3, neighbourhood, neighbourhoodAux3, 
             		host_name, host_nameAux3, last_review, last_reviewAux3, name, nameAux3, room_type, room_typeAux3, 
-            		longitude, longitudeAux3, latitude, latitudeAux3, 0, vetorPriceMergeSort.length-1);
+            		longitude, longitudeAux3, latitude, latitudeAux3, 0, vetorPriceMergeSort.length-1);*/
             
             // QUICK SORT ---------------------------------------------------------------------------
             
             for (int i = 0; i < vetor.length; i++) {
             	vetorPriceQuickSort[i] = vetor[i];
             }
+            
+            System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+            System.out.println(id[0]);
+            System.out.println(vetorPriceQuickSort[0]);
+            System.out.println(availability_365[0]);
+            System.out.println(calculated_host[0]);
+            System.out.println(host_id[0]);
+            System.out.println(minimun_nights[0]);
+            System.out.println(number_reviews[0]);
+            System.out.println(neighbourhood_group[0]);
+            System.out.println(neighbourhood[0]);
+            System.out.println(host_name[0]);
+            System.out.println(last_review[0]);
+            System.out.println(name[0]);
+            System.out.println(room_type[0]);
+            System.out.println(longitude[0]);
+            System.out.println(latitude[0]);
              
             //listings_price_quickSort_medioCaso.csv
-            quickSort(vetorPriceQuickSort, 0, vetorPriceQuickSort.length-1);
-
-            //listings_price_quickSort_medioCaso.csv
-            quickSort(vetorPriceQuickSort, 0, vetorPriceQuickSort.length-1);
+            QuickSort.quickSort(vetorPriceQuickSort, id, availability_365, calculated_host, host_id,
+            		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
+            		host_name, last_review, name, room_type, longitude, latitude, 0, vetorPriceQuickSort.length-1);
             
+            System.out.println("DEPOISSSSSSSSSSSSSSSSS");
+            System.out.println(id[0]);
+            System.out.println(vetorPriceQuickSort[0]);
+            System.out.println(availability_365[0]);
+            System.out.println(calculated_host[0]);
+            System.out.println(host_id[0]);
+            System.out.println(minimun_nights[0]);
+            System.out.println(number_reviews[0]);
+            System.out.println(neighbourhood_group[0]);
+            System.out.println(neighbourhood[0]);
+            System.out.println(host_name[0]);
+            System.out.println(last_review[0]);
+            System.out.println(name[0]);
+            System.out.println(room_type[0]);
+            System.out.println(longitude[0]);
+            System.out.println(latitude[0]);
+            //listings_price_quickSort_medioCaso.csv
+            //QuickSort.quickSort(neighbourhood, vetorPriceQuickSort, id, 0, vetorPriceQuickSort.length-1);
+           
             //listings_price_quickSort_medioCaso.csv
             ordenarDecrescente(vetorPriceQuickSort);
-            quickSort(vetorPriceQuickSort, 0, vetorPriceQuickSort.length-1);
+            //QuickSort.quickSort(neighbourhood, vetorPriceQuickSort, id, 0, vetorPriceQuickSort.length-1);
             //printarArrayInt(vetorPriceQuickSort);
             
             // QUICK SORT MEDIANA DE TRES ----------------------------------------------------------
