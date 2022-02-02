@@ -77,23 +77,55 @@ public class AirBnbAnalysesApplication {
             }
             
             // SELECTION SORT ---------------------------------------------------------------------------
-            
-
-            
+  
             for (int i = 0; i < vetor.length; i++) {
             	vetorPriceSelectionSort[i] = vetor[i];
             }
             
+	          System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+	          System.out.println(id[0]);
+	          System.out.println(vetorPriceSelectionSort[0]);
+	          System.out.println(availability_365[0]);
+	          System.out.println(calculated_host[0]);
+	          System.out.println(host_id[0]);
+	          System.out.println(minimun_nights[0]);
+	          System.out.println(number_reviews[0]);
+	          System.out.println(neighbourhood_group[0]);
+	          System.out.println(neighbourhood[0]);
+	          System.out.println(host_name[0]);
+	          System.out.println(last_review[0]);
+	          System.out.println(name[0]);
+	          System.out.println(room_type[0]);
+	          System.out.println(longitude[0]);
+	          System.out.println(latitude[0]);
+            
             //listings_price_selectionSort_medioCaso.csv
-            //SelectionSort.SelectSort(vetorPriceSelectionSort, id, availability_365, calculated_host, host_id, minimun_nights, number_reviews, neighbourhood_group, neighbourhood, host_name, last_review, name, room_type, longitude, latitude);
+            SelectionSort.SelectSort(vetorPriceSelectionSort, id, availability_365, calculated_host, host_id, minimun_nights, number_reviews, neighbourhood_group, neighbourhood, host_name, last_review, name, room_type, longitude, latitude);
             
             //listings_price_selectionSort_melhorCaso.csv
-            //SelectionSort.SelectSort(vetorPriceSelectionSort, id, availability_365, calculated_host, host_id, minimun_nights, number_reviews, neighbourhood_group, neighbourhood, host_name, last_review, name, room_type, longitude, latitude);
+            SelectionSort.SelectSort(vetorPriceSelectionSort, id, availability_365, calculated_host, host_id, minimun_nights, number_reviews, neighbourhood_group, neighbourhood, host_name, last_review, name, room_type, longitude, latitude);
             
             //listings_price_selectionSort_piorCaso.csv
-            //ordenarDecrescente(vetorPriceSelectionSort); // Deixa o vetor do maior para o menor
-            //SelectionSort.SelectSort(vetorPriceSelectionSort, id, availability_365, calculated_host, host_id, minimun_nights, number_reviews, neighbourhood_group, neighbourhood, host_name, last_review, name, room_type, longitude, latitude);
+            SelectionSort.SelectSortInverse(vetorPriceSelectionSort, id, availability_365, calculated_host, host_id, minimun_nights, number_reviews, neighbourhood_group, neighbourhood, host_name, last_review, name, room_type, longitude, latitude); // Deixa o vetor do maior para o menor
+            SelectionSort.SelectSort(vetorPriceSelectionSort, id, availability_365, calculated_host, host_id, minimun_nights, number_reviews, neighbourhood_group, neighbourhood, host_name, last_review, name, room_type, longitude, latitude);
 
+	          
+	          System.out.println("DEPOISSSSSSSSSSSS");
+	          System.out.println(id[0]);
+	          System.out.println(vetorPriceSelectionSort[0]);
+	          System.out.println(availability_365[0]);
+	          System.out.println(calculated_host[0]);
+	          System.out.println(host_id[0]);
+	          System.out.println(minimun_nights[0]);
+	          System.out.println(number_reviews[0]);
+	          System.out.println(neighbourhood_group[0]);
+	          System.out.println(neighbourhood[0]);
+	          System.out.println(host_name[0]);
+	          System.out.println(last_review[0]);
+	          System.out.println(name[0]);
+	          System.out.println(room_type[0]);
+	          System.out.println(longitude[0]);
+	          System.out.println(latitude[0]);
             // INSERTION SORT --------------------------------------------------------------------------
             
             // Transformando todos os strings em inteiro para realizar sort do price.
@@ -178,7 +210,7 @@ public class AirBnbAnalysesApplication {
             String room_typeAux3[] = new String[room_type.length];
             double longitudeAux3[] = new double[longitude.length];
             double latitudeAux3[] = new double[latitude.length];
-            ordenarDecrescente(vetorPriceMergeSort);
+            //ordenarDecrescente(vetorPriceMergeSort);
             /*MergeSort.mergeSort(vetorPriceMergeSort, vetorAux3, id, idAux3, availability_365, availability_365Aux3, 
             		calculated_host, calculated_hostAux3, host_id, host_idAux3, minimun_nights, minimun_nightsAux3,
             		number_reviews, number_reviewsAux3, neighbourhood_group, neighbourhood_groupAux3, neighbourhood, neighbourhoodAux3, 
@@ -200,7 +232,7 @@ public class AirBnbAnalysesApplication {
             //QuickSort.quickSort(neighbourhood, vetorPriceQuickSort, id, 0, vetorPriceQuickSort.length-1);
            
             //listings_price_quickSort_piorCaso.csv
-            ordenarDecrescente(vetorPriceQuickSort);
+            //ordenarDecrescente(vetorPriceQuickSort);
             //QuickSort.quickSort(neighbourhood, vetorPriceQuickSort, id, 0, vetorPriceQuickSort.length-1);
             //printarArrayInt(vetorPriceQuickSort);
             
@@ -248,77 +280,19 @@ public class AirBnbAnalysesApplication {
             	vetorPriceHeapSort[i] = vetor[i];
             }
             
-	          System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-	          System.out.println(id[0]);
-	          System.out.println(vetorPriceHeapSort[0]);
-	          System.out.println(availability_365[0]);
-	          System.out.println(calculated_host[0]);
-	          System.out.println(host_id[0]);
-	          System.out.println(minimun_nights[0]);
-	          System.out.println(number_reviews[0]);
-	          System.out.println(neighbourhood_group[0]);
-	          System.out.println(neighbourhood[0]);
-	          System.out.println(host_name[0]);
-	          System.out.println(last_review[0]);
-	          System.out.println(name[0]);
-	          System.out.println(room_type[0]);
-	          System.out.println(longitude[0]);
-	          System.out.println(latitude[0]);
-            
-            HeapSort.heap(vetorPriceHeapSort, id, availability_365, calculated_host, host_id,
+            //listings_price_heapSort_medioCaso.csv
+            /*HeapSort.heap(vetorPriceHeapSort, id, availability_365, calculated_host, host_id,
               		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
-              		host_name, last_review, name, room_type, longitude, latitude);
+              		host_name, last_review, name, room_type, longitude, latitude);*/
             
-            HeapSort.heap(vetorPriceHeapSort, id, availability_365, calculated_host, host_id,
+            //listings_price_heapSort_medioCaso.csv
+            /*HeapSort.heap(vetorPriceHeapSort, id, availability_365, calculated_host, host_id,
               		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
-              		host_name, last_review, name, room_type, longitude, latitude);
+              		host_name, last_review, name, room_type, longitude, latitude);*/
             
-            System.out.println("DEPOOISSSSSSSSSSSSSSSSSSSSS");
-	          System.out.println(id[0]);
-	          System.out.println(vetorPriceHeapSort[0]);
-	          System.out.println(availability_365[0]);
-	          System.out.println(calculated_host[0]);
-	          System.out.println(host_id[0]);
-	          System.out.println(minimun_nights[0]);
-	          System.out.println(number_reviews[0]);
-	          System.out.println(neighbourhood_group[0]);
-	          System.out.println(neighbourhood[0]);
-	          System.out.println(host_name[0]);
-	          System.out.println(last_review[0]);
-	          System.out.println(name[0]);
-	          System.out.println(room_type[0]);
-	          System.out.println(longitude[0]);
-	          System.out.println(latitude[0]);
         } catch (IOException e) {
             e.printStackTrace();
         }
-  
     }
-  
-    public static void ordenarDecrescente(int[] v) {	
-    	for (int i = 0; i < v.length; i++) {
-    		
-    		int i_maior = i;
-    		for (int j = i + 1; j < v.length; j++)
-    			if (v[j] > v[i_maior])
-    				i_maior = j;
-    		
-    		int aux = v[i];
-    		v[i] = v[i_maior];
-    		v[i_maior] = aux;
-    	
-    	}		
-    }
-    
-    public static void printarArrayInt(int[] v) {
-      for (int i = 0; i < v.length; i++) {
-    	System.out.println(v[i]);
-      }
-    }
-  
-  // couting?
-  
-  // 
-  
-  
+      
 }
