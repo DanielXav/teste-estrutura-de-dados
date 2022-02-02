@@ -13,8 +13,11 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import br.com.springboot.airbnbanalyses.entities.AirBnbListings;
+import br.com.springboot.airbnbanalyses.sort.CountingSort;
+import br.com.springboot.airbnbanalyses.sort.HeapSort;
 import br.com.springboot.airbnbanalyses.sort.InsertionSort;
 import br.com.springboot.airbnbanalyses.sort.MergeSort;
+import br.com.springboot.airbnbanalyses.sort.QuickMediana3;
 import br.com.springboot.airbnbanalyses.sort.QuickSort;
 import br.com.springboot.airbnbanalyses.sort.SelectionSort;
 
@@ -30,6 +33,9 @@ public class AirBnbAnalysesApplication {
             int vetorPriceInsertionSort[] = new int[list.size()];
             int vetorPriceMergeSort[] = new int[list.size()];
             int vetorPriceQuickSort[] = new int[list.size()];
+            int vetorPriceQuickMedia3[] = new int[list.size()];
+            int vetorPriceCountingSort[] = new int[list.size()];
+            int vetorPriceHeapSort[] = new int[list.size()];
             
             int vetor[] = new int[list.size()];
             int id[] = new int[list.size()];
@@ -184,57 +190,105 @@ public class AirBnbAnalysesApplication {
             for (int i = 0; i < vetor.length; i++) {
             	vetorPriceQuickSort[i] = vetor[i];
             }
-            
-            System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-            System.out.println(id[0]);
-            System.out.println(vetorPriceQuickSort[0]);
-            System.out.println(availability_365[0]);
-            System.out.println(calculated_host[0]);
-            System.out.println(host_id[0]);
-            System.out.println(minimun_nights[0]);
-            System.out.println(number_reviews[0]);
-            System.out.println(neighbourhood_group[0]);
-            System.out.println(neighbourhood[0]);
-            System.out.println(host_name[0]);
-            System.out.println(last_review[0]);
-            System.out.println(name[0]);
-            System.out.println(room_type[0]);
-            System.out.println(longitude[0]);
-            System.out.println(latitude[0]);
              
             //listings_price_quickSort_medioCaso.csv
-            QuickSort.quickSort(vetorPriceQuickSort, id, availability_365, calculated_host, host_id,
+            /*QuickSort.quickSort(vetorPriceQuickSort, id, availability_365, calculated_host, host_id,
             		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
-            		host_name, last_review, name, room_type, longitude, latitude, 0, vetorPriceQuickSort.length-1);
+            		host_name, last_review, name, room_type, longitude, latitude, 0, vetorPriceQuickSort.length-1);*/
             
-            System.out.println("DEPOISSSSSSSSSSSSSSSSS");
-            System.out.println(id[0]);
-            System.out.println(vetorPriceQuickSort[0]);
-            System.out.println(availability_365[0]);
-            System.out.println(calculated_host[0]);
-            System.out.println(host_id[0]);
-            System.out.println(minimun_nights[0]);
-            System.out.println(number_reviews[0]);
-            System.out.println(neighbourhood_group[0]);
-            System.out.println(neighbourhood[0]);
-            System.out.println(host_name[0]);
-            System.out.println(last_review[0]);
-            System.out.println(name[0]);
-            System.out.println(room_type[0]);
-            System.out.println(longitude[0]);
-            System.out.println(latitude[0]);
-            //listings_price_quickSort_medioCaso.csv
+            //listings_price_quickSort_melhorCaso.csv
             //QuickSort.quickSort(neighbourhood, vetorPriceQuickSort, id, 0, vetorPriceQuickSort.length-1);
            
-            //listings_price_quickSort_medioCaso.csv
+            //listings_price_quickSort_piorCaso.csv
             ordenarDecrescente(vetorPriceQuickSort);
             //QuickSort.quickSort(neighbourhood, vetorPriceQuickSort, id, 0, vetorPriceQuickSort.length-1);
             //printarArrayInt(vetorPriceQuickSort);
             
             // QUICK SORT MEDIANA DE TRES ----------------------------------------------------------
+            for (int i = 0; i < vetor.length; i++) {
+            	vetorPriceQuickMedia3[i] = vetor[i];
+            }
             
-            //quicksortMedianaDeTres(A, 0, A.length - 1);
+            //listings_price_quickSortMediana3_medioCaso.csv
+            /*QuickMediana3.quickSort(vetorPriceQuickMedia3, id, availability_365, calculated_host, host_id,
+            		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
+            		host_name, last_review, name, room_type, longitude, latitude, 0, vetorPriceQuickMedia3.length-1);*/
             
+            //listings_price_quickSortMediana3_melhorCaso.csv
+            /*QuickMediana3.quickSort(vetorPriceQuickMedia3, id, availability_365, calculated_host, host_id,
+            		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
+            		host_name, last_review, name, room_type, longitude, latitude, 0, vetorPriceQuickMedia3.length-1);*/
+            
+            //listings_price_quickSortMediana3_piorCaso.csv
+	        /*QuickMediana3.quickSort(vetorPriceQuickMedia3, id, availability_365, calculated_host, host_id,
+      		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
+      		host_name, last_review, name, room_type, longitude, latitude, 0, vetorPriceQuickMedia3.length-1);*/
+            
+            // COUTING SORT ----------------------------------------------------------
+            
+            for (int i = 0; i < vetor.length; i++) {
+            	vetorPriceCountingSort[i] = vetor[i];
+            }
+            
+            //listings_price_coutingSortMediana3_medioCaso.csv
+            /*CountingSort.countSort(vetorPriceCountingSort, id, availability_365, calculated_host, host_id,
+              		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
+              		host_name, last_review, name, room_type, longitude, latitude, vetorPriceQuickMedia3.length-1);*/
+            
+            //listings_price_coutingSortMediana3_medioCaso.csv
+            /*CountingSort.countSort(vetorPriceCountingSort, id, availability_365, calculated_host, host_id,
+              		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
+              		host_name, last_review, name, room_type, longitude, latitude, vetorPriceQuickMedia3.length-1);*/
+            
+            //listings_price_coutingSortMediana3_medioCaso.csv
+            
+            // HEAP SORT ---------------------------------------------------------------------
+            
+            for (int i = 0; i < vetor.length; i++) {
+            	vetorPriceHeapSort[i] = vetor[i];
+            }
+            
+	          System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+	          System.out.println(id[0]);
+	          System.out.println(vetorPriceHeapSort[0]);
+	          System.out.println(availability_365[0]);
+	          System.out.println(calculated_host[0]);
+	          System.out.println(host_id[0]);
+	          System.out.println(minimun_nights[0]);
+	          System.out.println(number_reviews[0]);
+	          System.out.println(neighbourhood_group[0]);
+	          System.out.println(neighbourhood[0]);
+	          System.out.println(host_name[0]);
+	          System.out.println(last_review[0]);
+	          System.out.println(name[0]);
+	          System.out.println(room_type[0]);
+	          System.out.println(longitude[0]);
+	          System.out.println(latitude[0]);
+            
+            HeapSort.heap(vetorPriceHeapSort, id, availability_365, calculated_host, host_id,
+              		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
+              		host_name, last_review, name, room_type, longitude, latitude);
+            
+            HeapSort.heap(vetorPriceHeapSort, id, availability_365, calculated_host, host_id,
+              		minimun_nights, number_reviews, reviews_month, neighbourhood_group, neighbourhood, 
+              		host_name, last_review, name, room_type, longitude, latitude);
+            
+            System.out.println("DEPOOISSSSSSSSSSSSSSSSSSSSS");
+	          System.out.println(id[0]);
+	          System.out.println(vetorPriceHeapSort[0]);
+	          System.out.println(availability_365[0]);
+	          System.out.println(calculated_host[0]);
+	          System.out.println(host_id[0]);
+	          System.out.println(minimun_nights[0]);
+	          System.out.println(number_reviews[0]);
+	          System.out.println(neighbourhood_group[0]);
+	          System.out.println(neighbourhood[0]);
+	          System.out.println(host_name[0]);
+	          System.out.println(last_review[0]);
+	          System.out.println(name[0]);
+	          System.out.println(room_type[0]);
+	          System.out.println(longitude[0]);
+	          System.out.println(latitude[0]);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -261,8 +315,6 @@ public class AirBnbAnalysesApplication {
     	System.out.println(v[i]);
       }
     }
-  
-  // quick sort mediana de tres
   
   // couting?
   
