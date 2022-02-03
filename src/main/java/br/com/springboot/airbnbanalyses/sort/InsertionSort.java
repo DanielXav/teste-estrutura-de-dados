@@ -57,4 +57,29 @@ public class InsertionSort {
             array15[i+1] = key15;
         }  
     }
+	
+	public static void insertSortStr(String[] v0, Integer[] v1, Integer[] v2) {
+		int n = v0.length;
+		String key0 = "";
+		int key1 = 0;
+		int key2 = 0;
+//		System.out.println("Por favor aguarde executando insertSortStr...");
+		for (int i = 0; i < n; i++) {
+			for (int j = 1; j < n; j++) {			
+				if(v0[i].compareToIgnoreCase(v0[j])>0) { 									
+					key0 = v0[i];
+					v0[i] = v0[j];
+					v0[j] = key0;
+					
+					key1 = v1[i];
+					v1[i] = v1[j];
+					v1[j] = key1;
+
+					key2 = v2[i];
+					v2[i] = v2[j];
+					v2[j] = key2;									
+				}
+			}
+		}
+	}
 }

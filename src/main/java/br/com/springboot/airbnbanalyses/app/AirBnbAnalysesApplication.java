@@ -8,6 +8,7 @@ import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import br.com.springboot.airbnbanalyses.entities.AirBnbListings;
+import br.com.springboot.airbnbanalyses.sort.InsertionSort;
 import br.com.springboot.airbnbanalyses.sort.SelectionSort;
 
 public class AirBnbAnalysesApplication {
@@ -60,52 +61,43 @@ public class AirBnbAnalysesApplication {
                 j++;
             }
             
-            System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-	          System.out.println(arrayId[0]);
-	          System.out.println(arrayName[0]);
-	          System.out.println(arrayHostId[0]);
-	          System.out.println(arrayHostName[0]);
-	          System.out.println(arrayNeighbourhoodGroup[0]);
-	          System.out.println(arrayNeighbourhood[0]);
-	          System.out.println(arrayLatitude[0]);
-	          System.out.println(arrayLongitude[0]);
-	          System.out.println(arrayRoomType[0]);
-	          System.out.println(arrayPrice[0]);
-	          System.out.println(arrayMinimumNights[0]);
-	          System.out.println(arrayNumberOfReviews[0]);
-	          System.out.println(arrayLastReview[0]);
-	          System.out.println(arrayReviewsPerMonth[0]);
-	          System.out.println(arrayCalculatedHostListingsCount[0]);
-	          System.out.println(arrayAvaiability365[0]);
-            
-            
-	          
-	          SelectionSort.SelectionString(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            //SELECTION SORT ---------------------------------------------------------------------
+           
+            //listings_names_selectionSort_medioCaso.csv
+            //SelectionSort.SelectionString(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
 	            
-	          SelectionSort.SelectionString(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            //listings_names_selectionSort_melhorCaso.csv
+	        //SelectionSort.SelectionString(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+	         
+	        //listings_names_selectionSort_piorCaso.csv
+	        //SelectionSort.SelectionStringInverse(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+	        //SelectionSort.SelectionString(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
 	          
-	          SelectionSort.SelectionStringInverse(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-	          SelectionSort.SelectionString(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-	          
-	          System.out.println("DEPOISSSSSSSSSSSSSSSSSSSSSSSSS");
-		          System.out.println(arrayId[10000]);
-		          System.out.println(arrayName[0]);
-		          System.out.println(arrayHostId[0]);
-		          System.out.println(arrayHostName[0]);
-		          System.out.println(arrayNeighbourhoodGroup[0]);
-		          System.out.println(arrayNeighbourhood[0]);
-		          System.out.println(arrayLatitude[0]);
-		          System.out.println(arrayLongitude[0]);
-		          System.out.println(arrayRoomType[0]);
-		          System.out.println(arrayPrice[0]);
-		          System.out.println(arrayMinimumNights[0]);
-		          System.out.println(arrayNumberOfReviews[0]);
-		          System.out.println(arrayLastReview[0]);
-		          System.out.println(arrayReviewsPerMonth[0]);
-		          System.out.println(arrayCalculatedHostListingsCount[0]);
-		          System.out.println(arrayAvaiability365[0]);
-	          
-	          
+//            System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+//	          System.out.println(id[0]);
+//	          System.out.println(vetorPriceSelectionSort[0]);
+//	          System.out.println(availability_365[0]);
+//	          System.out.println(calculated_host[0]);
+//	          System.out.println(host_id[0]);
+//	          System.out.println(minimun_nights[0]);
+//	          System.out.println(number_reviews[0]);
+//	          System.out.println(neighbourhood_group[0]);
+//	          System.out.println(neighbourhood[0]);
+//	          System.out.println(host_name[0]);
+//	          System.out.println(last_review[0]);
+//	          System.out.println(name[0]);
+//	          System.out.println(room_type[0]);
+//	          System.out.println(longitude[0]);
+//	          System.out.println(latitude[0]);
+            
+            System.out.println(arrayName[0]);
+            System.out.println(arrayId[0]);
+            System.out.println(arrayPrice[0]);
+	        //INSERTION SORT ---------------------------------------------------------------------
+	        InsertionSort.insertSortStr(arrayName, arrayId, arrayPrice);  
+	        System.out.println(arrayName[arrayName.length-1]);
+            System.out.println(arrayId[arrayId.length-1]);
+            System.out.println(arrayPrice[arrayPrice.length-1]);
 
         } catch (IOException e) {
             e.printStackTrace();
