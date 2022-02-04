@@ -159,4 +159,155 @@ public class QuickSort {
 		return i + 1;
 
 	}
+	
+	public static void quickSortStr(String[] arrayName, Integer[] arrayPrice, Integer[] arrayId, Integer[] arrayHostId, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvailability365 ,
+            String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, int a, int b) {
+
+		if (a < b) {
+			int q = particionaStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, b);
+			quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, q - 1);
+			quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, q + 1, b);
+		}
+	}
+
+	public static int particionaStr(String[] arrayName, Integer[] arrayPrice, Integer[] arrayId, Integer[] arrayHostId, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvailability365 ,
+            String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, int p, int r) {
+		int i = p - 1;
+		String x = arrayName[r];
+
+		int aux;
+		String auxStr;
+		double auxDouble;
+
+		for (int j = p; j < r; j++) {
+
+			if (arrayName[j].compareToIgnoreCase(x) < 0) { 
+				i++;
+
+				auxStr = arrayName[i];
+				arrayName[i] = arrayName[j];
+				arrayName[j] = auxStr;
+
+				aux = arrayPrice[i];
+				arrayPrice[i] = arrayPrice[j];
+				arrayPrice[j] = aux;
+
+				aux = arrayId[i];
+				arrayId[i] = arrayId[j];
+				arrayId[j] = aux;
+				
+				aux = arrayHostId[i];
+				arrayHostId[i] = arrayHostId[j];
+				arrayHostId[j] = aux;
+				
+				aux = arrayMinimumNights[i];
+				arrayMinimumNights[i] = arrayMinimumNights[j];
+				arrayMinimumNights[j] = aux;
+				
+				aux = arrayNumberOfReviews[i];
+				arrayNumberOfReviews[i] = arrayNumberOfReviews[j];
+				arrayNumberOfReviews[j] = aux;
+				
+				aux = arrayCalculatedHostListingsCount[i];
+				arrayCalculatedHostListingsCount[i] = arrayCalculatedHostListingsCount[j];
+				arrayCalculatedHostListingsCount[j] = aux;
+				
+				aux = arrayAvailability365[i];
+				arrayAvailability365[i] = arrayAvailability365[j];
+				arrayAvailability365[j] = aux;
+				
+				auxStr = arrayHostName[i];
+				arrayHostName[i] = arrayHostName[j];
+				arrayHostName[j] = auxStr;
+				
+				auxStr = arrayNeighbourhoodGroup[i];
+				arrayNeighbourhoodGroup[i] = arrayNeighbourhoodGroup[j];
+				arrayNeighbourhoodGroup[j] = auxStr;
+				
+				auxStr = arrayNeighbourhood[i];
+				arrayNeighbourhood[i] = arrayNeighbourhood[j];
+				arrayNeighbourhood[j] = auxStr;
+				
+				auxStr = arrayRoomType[i];
+				arrayRoomType[i] = arrayRoomType[j];
+				arrayRoomType[j] = auxStr;
+				
+				auxStr = arrayLastReview[i];
+				arrayLastReview[i] = arrayLastReview[j];
+				arrayLastReview[j] = auxStr;
+				
+				auxDouble = arrayLatitude[i];
+				arrayLatitude[i] = arrayLatitude[j];
+				arrayLatitude[j] = auxDouble;
+				
+				auxDouble = arrayLongitude[i];
+				arrayLongitude[i] = arrayLongitude[j];
+				arrayLongitude[j] = auxDouble;
+
+			}
+
+		}
+
+		auxStr = arrayName[i + 1];
+		arrayName[i + 1] = arrayName[r];
+		arrayName[r] = auxStr;
+
+		aux = arrayPrice[i + 1];
+		arrayPrice[i + 1] = arrayPrice[r];
+		arrayPrice[r] = aux;
+
+		aux = arrayId[i + 1];
+		arrayId[i + 1] = arrayId[r];
+		arrayId[r] = aux;
+		
+		aux = arrayHostId[i + 1];
+		arrayHostId[i + 1] = arrayHostId[r];
+		arrayHostId[r] = aux;
+		
+		aux = arrayMinimumNights[i + 1];
+		arrayMinimumNights[i + 1] = arrayMinimumNights[r];
+		arrayMinimumNights[r] = aux;
+		
+		aux = arrayNumberOfReviews[i + 1];
+		arrayNumberOfReviews[i + 1] = arrayNumberOfReviews[r];
+		arrayNumberOfReviews[r] = aux;
+		
+		aux = arrayCalculatedHostListingsCount[i + 1];
+		arrayCalculatedHostListingsCount[i + 1] = arrayCalculatedHostListingsCount[r];
+		arrayCalculatedHostListingsCount[r] = aux;
+		
+		aux = arrayAvailability365[i + 1];
+		arrayAvailability365[i + 1] = arrayAvailability365[r];
+		arrayAvailability365[r] = aux;
+		
+		auxStr = arrayHostName[i + 1];
+		arrayHostName[i + 1] = arrayHostName[r];
+		arrayHostName[r] = auxStr;
+		
+		auxStr = arrayNeighbourhoodGroup[i + 1];
+		arrayNeighbourhoodGroup[i + 1] = arrayNeighbourhoodGroup[r];
+		arrayNeighbourhoodGroup[r] = auxStr;
+		
+		auxStr = arrayNeighbourhood[i + 1];
+		arrayNeighbourhood[i + 1] = arrayName[r];
+		arrayNeighbourhood[r] = auxStr;
+		
+		auxStr = arrayRoomType[i + 1];
+		arrayRoomType[i + 1] = arrayRoomType[r];
+		arrayRoomType[r] = auxStr;
+		
+		auxStr = arrayLastReview[i + 1];
+		arrayLastReview[i + 1] = arrayLastReview[r];
+		arrayLastReview[r] = auxStr;
+		
+		auxDouble = arrayLatitude[i + 1];
+		arrayLatitude[i + 1] = arrayLatitude[r];
+		arrayLatitude[r] = auxDouble;
+		
+		auxDouble = arrayLongitude[i + 1];
+		arrayLongitude[i + 1] = arrayLongitude[r];
+		arrayLongitude[r] = auxDouble;
+
+		return i + 1;
+	}
 }
