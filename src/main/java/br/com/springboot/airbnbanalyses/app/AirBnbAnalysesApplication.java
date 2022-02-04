@@ -10,6 +10,7 @@ import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import br.com.springboot.airbnbanalyses.entities.AirBnbListings;
 import br.com.springboot.airbnbanalyses.sort.InsertionSort;
 import br.com.springboot.airbnbanalyses.sort.MergeSort;
+import br.com.springboot.airbnbanalyses.sort.QuickMediana3;
 import br.com.springboot.airbnbanalyses.sort.QuickSort;
 import br.com.springboot.airbnbanalyses.sort.SelectionSort;
 
@@ -143,25 +144,34 @@ public class AirBnbAnalysesApplication {
 	
 		    // QUICKSORT
 		    
-//		    System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-//		    System.out.println(arrayName[0]);
-//	        System.out.println(arrayPrice[0]);
-//	        System.out.println(arrayId[0]);
-//	        System.out.println(arrayHostId[0]);
-//	        System.out.println(arrayMinimumNights[0]);
-//	        System.out.println(arrayNumberOfReviews[0]);
-//	        System.out.println(arrayCalculatedHostListingsCount[0]);
-//	        System.out.println(arrayAvaiability365[0]);
-//	        System.out.println(arrayHostName[0]);
-//	        System.out.println(arrayNeighbourhoodGroup[0]);
-//	        System.out.println(arrayNeighbourhood[0]);
-//	        System.out.println(arrayRoomType[0]);
-//	        System.out.println(arrayLastReview[0]);
-//	        System.out.println(arrayLatitude[0]);
-//	        System.out.println(arrayLongitude[0]);
+		    System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+		    System.out.println(arrayName[0]);
+	        System.out.println(arrayPrice[0]);
+	        System.out.println(arrayId[0]);
+	        System.out.println(arrayHostId[0]);
+	        System.out.println(arrayMinimumNights[0]);
+	        System.out.println(arrayNumberOfReviews[0]);
+	        System.out.println(arrayCalculatedHostListingsCount[0]);
+	        System.out.println(arrayAvaiability365[0]);
+	        System.out.println(arrayHostName[0]);
+	        System.out.println(arrayNeighbourhoodGroup[0]);
+	        System.out.println(arrayNeighbourhood[0]);
+	        System.out.println(arrayRoomType[0]);
+	        System.out.println(arrayLastReview[0]);
+	        System.out.println(arrayLatitude[0]);
+	        System.out.println(arrayLongitude[0]);
 		    
-		    QuickSort.quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
+		    //QuickSort.quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
 		        
+		    // QUICKSORT MEDIANA DE 3
+		    
+
+		    //QuickMediana3.quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
+		    //QuickMediana3.quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
+		    //SelectionSort.SelectionStringInverse(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+		    //QuickMediana3.quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
+
+
         } catch (IOException e) {
             e.printStackTrace();
         } 

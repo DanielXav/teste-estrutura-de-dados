@@ -2,9 +2,9 @@ package br.com.springboot.airbnbanalyses.sort;
 
 public class QuickMediana3 {
 
-	public static void quickSort(int[] array, int[] array2, int[] array3, int[] array4, int[] array5, int[] array6, int[] array7, int[] array8,
+	public static void quickSort(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6, Integer[] array7, Integer[] array8,
 			String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, String[] array14,
-			double[] array15, double[] array16, int a, int b) {
+			Double[] array15, Double[] array16, int a, int b) {
 
 		if (a < b) {
 			int q = particiona(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, a, b);
@@ -13,9 +13,9 @@ public class QuickMediana3 {
 		}
 	}
 
-	public static int particiona(int[] array, int[] array2, int[] array3, int[] array4, int[] array5, int[] array6, int[] array7, int[] array8,
+	public static int particiona(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6, Integer[] array7, Integer[] array8,
 			String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, String[] array14,
-			double[] array15, double[] array16, int p, int r) {
+			Double[] array15, Double[] array16, int p, int r) {
 		// procura a mediana entre inicio, meio e fim
 		int meio = (p + r) / 2;
 		int a = array[p];
@@ -217,7 +217,7 @@ public class QuickMediana3 {
 
 	// método auxiliar para realizar as trocas de elementos
 
-	private static void swap(int[] A, int i, int j) {
+	private static void swap(Integer[] A, int i, int j) {
 		int temp = A[i];
 		A[i] = A[j];
 		A[j] = temp;
@@ -231,9 +231,211 @@ public class QuickMediana3 {
 	}
 	
 	// Troca Pontos flutuantes
-		private static void swapDouble(double[] A, int i, int j) {
+		private static void swapDouble(Double[] A, int i, int j) {
 			double temp = A[i];
 			A[i] = A[j];
 			A[j] = temp;
+		}
+		
+		public static void quickSortStr(String[] arrayName, Integer[] arrayPrice, Integer[] arrayId, Integer[] arrayHostId, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvailability365 ,
+	            String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, int a, int b) {
+
+			if (a < b) {
+				int q = particionaStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, b);
+				quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, q - 1);
+				quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, q + 1, b);
+			}
+		}
+
+		public static int particionaStr(String[] arrayName, Integer[] arrayPrice, Integer[] arrayId, Integer[] arrayHostId, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvailability365,
+	            String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, int p, int r) {
+			// procura a mediana entre inicio, meio e fim
+			int meio = (p + r) / 2;
+			String a = arrayName[p];
+			String b = arrayName[meio];
+			String c = arrayName[r];
+			int medianaIndice; // índice da mediana
+			// A sequência de if...else a seguir verifica qual é a mediana
+			if (a.compareToIgnoreCase(b) < 0) {
+				if (b.compareToIgnoreCase(c) < 0) {
+					// a < b && b < c
+					medianaIndice = meio;
+				} else {
+					if (a.compareToIgnoreCase(c) < 0) {
+						// a < c && c <= b
+						medianaIndice = r;
+					} else {
+						// c <= a && a < b
+						medianaIndice = p;
+					}
+				}
+			} else {
+				if (c.compareToIgnoreCase(b) < 0) {
+					// c < b && b <= a
+					medianaIndice = meio;
+				} else {
+					if (c.compareToIgnoreCase(a) < 0) {
+						// b <= c && c < a
+						medianaIndice = p;
+					} else {
+						// b <= a && a <= c
+						medianaIndice = r;
+					}
+				}
+			}
+			// coloca o elemento da mediana no fim para poder usar o Quicksort de Cormen
+			// procura a mediana entre inicio, meio e fim
+			swapStr(arrayName, medianaIndice, p);
+			swap(arrayPrice, medianaIndice, p);
+			swap(arrayId, medianaIndice, p);
+			swap(arrayHostId, medianaIndice, p);
+			swap(arrayMinimumNights, medianaIndice, p);
+			swap(arrayNumberOfReviews, medianaIndice, p);
+			swap(arrayCalculatedHostListingsCount, medianaIndice, p);
+			swap(arrayAvailability365, medianaIndice, p);
+			swapStr(arrayHostName, medianaIndice, p);
+			swapStr(arrayNeighbourhoodGroup, medianaIndice, p);
+			swapStr(arrayNeighbourhood, medianaIndice, p);
+			swapStr(arrayRoomType, medianaIndice, p);
+			swapStr(arrayLastReview, medianaIndice, p);
+			swapDouble(arrayLatitude, medianaIndice, p);
+			swapDouble(arrayLongitude, medianaIndice, p);
+			
+			int i = p - 1;
+			String x = arrayName[r];
+
+			int aux;
+			String auxStr;
+			double auxDouble;
+
+			for (int j = p; j < r; j++) {
+				if (arrayName[j].compareToIgnoreCase(x) < 0) {
+					i++;
+
+					auxStr = arrayName[i];
+					arrayName[i] = arrayName[j];
+					arrayName[j] = auxStr;
+
+					aux = arrayPrice[i];
+					arrayPrice[i] = arrayPrice[j];
+					arrayPrice[j] = aux;
+
+					aux = arrayId[i];
+					arrayId[i] = arrayId[j];
+					arrayId[j] = aux;
+					
+					aux = arrayHostId[i];
+					arrayHostId[i] = arrayHostId[j];
+					arrayHostId[j] = aux;
+					
+					aux = arrayMinimumNights[i];
+					arrayMinimumNights[i] = arrayMinimumNights[j];
+					arrayMinimumNights[j] = aux;
+					
+					aux = arrayNumberOfReviews[i];
+					arrayNumberOfReviews[i] = arrayNumberOfReviews[j];
+					arrayNumberOfReviews[j] = aux;
+					
+					aux = arrayCalculatedHostListingsCount[i];
+					arrayCalculatedHostListingsCount[i] = arrayCalculatedHostListingsCount[j];
+					arrayCalculatedHostListingsCount[j] = aux;
+					
+					aux = arrayAvailability365[i];
+					arrayAvailability365[i] = arrayAvailability365[j];
+					arrayAvailability365[j] = aux;
+					
+					auxStr = arrayHostName[i];
+					arrayHostName[i] = arrayHostName[j];
+					arrayHostName[j] = auxStr;
+					
+					auxStr = arrayNeighbourhoodGroup[i];
+					arrayNeighbourhoodGroup[i] = arrayNeighbourhoodGroup[j];
+					arrayNeighbourhoodGroup[j] = auxStr;
+					
+					auxStr = arrayNeighbourhood[i];
+					arrayNeighbourhood[i] = arrayNeighbourhood[j];
+					arrayNeighbourhood[j] = auxStr;
+					
+					auxStr = arrayRoomType[i];
+					arrayRoomType[i] = arrayRoomType[j];
+					arrayRoomType[j] = auxStr;
+					
+					auxStr = arrayLastReview[i];
+					arrayLastReview[i] = arrayLastReview[j];
+					arrayLastReview[j] = auxStr;
+					
+					auxDouble = arrayLatitude[i];
+					arrayLatitude[i] = arrayLatitude[j];
+					arrayLatitude[j] = auxDouble;
+					
+					auxDouble = arrayLongitude[i];
+					arrayLongitude[i] = arrayLongitude[j];
+					arrayLongitude[j] = auxDouble;
+
+				}
+
+			}
+
+			auxStr = arrayName[i + 1];
+			arrayName[i + 1] = arrayName[r];
+			arrayName[r] = auxStr;
+
+			aux = arrayPrice[i + 1];
+			arrayPrice[i + 1] = arrayPrice[r];
+			arrayPrice[r] = aux;
+
+			aux = arrayId[i + 1];
+			arrayId[i + 1] = arrayId[r];
+			arrayId[r] = aux;
+			
+			aux = arrayHostId[i + 1];
+			arrayHostId[i + 1] = arrayHostId[r];
+			arrayHostId[r] = aux;
+			
+			aux = arrayMinimumNights[i + 1];
+			arrayMinimumNights[i + 1] = arrayMinimumNights[r];
+			arrayMinimumNights[r] = aux;
+			
+			aux = arrayNumberOfReviews[i + 1];
+			arrayNumberOfReviews[i + 1] = arrayNumberOfReviews[r];
+			arrayNumberOfReviews[r] = aux;
+			
+			aux = arrayCalculatedHostListingsCount[i + 1];
+			arrayCalculatedHostListingsCount[i + 1] = arrayCalculatedHostListingsCount[r];
+			arrayCalculatedHostListingsCount[r] = aux;
+			
+			aux = arrayAvailability365[i + 1];
+			arrayAvailability365[i + 1] = arrayAvailability365[r];
+			arrayAvailability365[r] = aux;
+			
+			auxStr = arrayHostName[i + 1];
+			arrayHostName[i + 1] = arrayHostName[r];
+			arrayHostName[r] = auxStr;
+			
+			auxStr = arrayNeighbourhoodGroup[i + 1];
+			arrayNeighbourhoodGroup[i + 1] = arrayNeighbourhoodGroup[r];
+			arrayNeighbourhoodGroup[r] = auxStr;
+			
+			auxStr = arrayNeighbourhood[i + 1];
+			arrayNeighbourhood[i + 1] = arrayName[r];
+			arrayNeighbourhood[r] = auxStr;
+			
+			auxStr = arrayRoomType[i + 1];
+			arrayRoomType[i + 1] = arrayRoomType[r];
+			arrayRoomType[r] = auxStr;
+			
+			auxStr = arrayLastReview[i + 1];
+			arrayLastReview[i + 1] = arrayLastReview[r];
+			arrayLastReview[r] = auxStr;
+			
+			auxDouble = arrayLatitude[i + 1];
+			arrayLatitude[i + 1] = arrayLatitude[r];
+			arrayLatitude[r] = auxDouble;
+			
+			auxDouble = arrayLongitude[i + 1];
+			arrayLongitude[i + 1] = arrayLongitude[r];
+			arrayLongitude[r] = auxDouble;
+
+			return i + 1;
 		}
 }
