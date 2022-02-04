@@ -80,12 +80,50 @@ public class AirBnbAnalysesApplication {
 	         
             
 	        //INSERTION SORT ---------------------------------------------------------------------
-	        //InsertionSort.insertSortStr(arrayName, arrayId, arrayPrice);  
-
-	        //MERGE SORTE
-	        
-          
             
+		    System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+		    System.out.println(arrayName[0]);
+	        System.out.println(arrayPrice[0]);
+	        System.out.println(arrayId[0]);
+	        System.out.println(arrayHostId[0]);
+	        System.out.println(arrayMinimumNights[0]);
+	        System.out.println(arrayNumberOfReviews[0]);
+	        System.out.println(arrayCalculatedHostListingsCount[0]);
+	        System.out.println(arrayAvaiability365[0]);
+	        System.out.println(arrayHostName[0]);
+	        System.out.println(arrayNeighbourhoodGroup[0]);
+	        System.out.println(arrayNeighbourhood[0]);
+	        System.out.println(arrayRoomType[0]);
+	        System.out.println(arrayLastReview[0]);
+	        System.out.println(arrayLatitude[0]);
+	        System.out.println(arrayLongitude[0]);
+            
+	        //InsertionSort.insertSortStr(arrayName, arrayId, arrayPrice);  
+            //InsertionSort.insertionSortStringTeste(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            //InsertionSort.insertionSortStringTeste(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+		    //SelectionSort.SelectionStringInverse(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            //InsertionSort.insertionSortStringTeste(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+
+            
+		    System.out.println("DEPOISSSSSSSSSSS");
+		    System.out.println(arrayName[10000]);
+	        System.out.println(arrayPrice[0]);
+	        System.out.println(arrayId[0]);
+	        System.out.println(arrayHostId[0]);
+	        System.out.println(arrayMinimumNights[0]);
+	        System.out.println(arrayNumberOfReviews[0]);
+	        System.out.println(arrayCalculatedHostListingsCount[0]);
+	        System.out.println(arrayAvaiability365[0]);
+	        System.out.println(arrayHostName[0]);
+	        System.out.println(arrayNeighbourhoodGroup[0]);
+	        System.out.println(arrayNeighbourhood[0]);
+	        System.out.println(arrayRoomType[0]);
+	        System.out.println(arrayLastReview[0]);
+	        System.out.println(arrayLatitude[0]);
+	        System.out.println(arrayLongitude[0]);
+            
+	        //MERGE SORTE
+
 		    String auxArrayName[] = new String[arrayName.length];
 		    Integer auxArrayPrice[] = new Integer[arrayPrice.length];
 		    Integer auxArrayId[] = new Integer[arrayId.length];
@@ -159,23 +197,6 @@ public class AirBnbAnalysesApplication {
 	        // COUTING SORT - NÃO
 		    
 		    // HEAP SORT
-		    
-		    System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-		    System.out.println(arrayName[0]);
-	        System.out.println(arrayPrice[0]);
-	        System.out.println(arrayId[0]);
-	        System.out.println(arrayHostId[0]);
-	        System.out.println(arrayMinimumNights[0]);
-	        System.out.println(arrayNumberOfReviews[0]);
-	        System.out.println(arrayCalculatedHostListingsCount[0]);
-	        System.out.println(arrayAvaiability365[0]);
-	        System.out.println(arrayHostName[0]);
-	        System.out.println(arrayNeighbourhoodGroup[0]);
-	        System.out.println(arrayNeighbourhood[0]);
-	        System.out.println(arrayRoomType[0]);
-	        System.out.println(arrayLastReview[0]);
-	        System.out.println(arrayLatitude[0]);
-	        System.out.println(arrayLongitude[0]);
 		    
 		    //HeapSort.HeapStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
 	        
