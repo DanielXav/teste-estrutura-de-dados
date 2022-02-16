@@ -1,16 +1,18 @@
 package br.com.springboot.airbnbanalyses.app;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 import br.com.springboot.airbnbanalyses.entities.AirBnbListings;
-import br.com.springboot.airbnbanalyses.sort.MergeSort;
+import br.com.springboot.airbnbanalyses.sort.QuickMediana3;
 import br.com.springboot.airbnbanalyses.sort.SelectionSort;
 
 public class AirBnbAnalysesApplication {
 
-	public static void main (String []args) {
+	public static void main (String []args) throws ParseException {
         try {
             /*List<AirBnbListings> list = readCsv(CSV_LISTINGS).parse();
             convertDate(list);
@@ -74,21 +76,6 @@ public class AirBnbAnalysesApplication {
 //                opcao = sc.nextInt();
 //            }
             
-          //SELECTION SORT ---------------------------------------------------------------------
-            
-            //listings_names_selectionSort_medioCaso.csv
-            //SelectionSort.SelectionString(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-                
-            //listings_names_selectionSort_melhorCaso.csv
-            //SelectionSort.SelectionString(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-             
-            //listings_names_selectionSort_piorCaso.csv
-            //SelectionSort.SelectionStringInverse(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-            //SelectionSort.SelectionString(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-             
-            
-            //INSERTION SORT ---------------------------------------------------------------------
-            
     	    System.out.println("ANTESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
     	    System.out.println(arrayName[0]);
             System.out.println(arrayPrice[0]);
@@ -106,134 +93,51 @@ public class AirBnbAnalysesApplication {
             System.out.println(arrayLatitude[0]);
             System.out.println(arrayLongitude[0]);
             
-            //InsertionSort.insertSortStr(arrayName, arrayId, arrayPrice);  
-            //InsertionSort.insertionSortStringTeste(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-            //InsertionSort.insertionSortStringTeste(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-    	    //SelectionSort.SelectionStringInverse(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-            //InsertionSort.insertionSortStringTeste(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-
+            Date[] auxiliarDate = new Date[listings_review_date.size()];
+            
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            
+//            for(int i = 0; i < auxiliarDate.length; i++) {
+//            	
+//            	String aux = arrayLastReview[i];
+//            	if (aux.length() > 1) {
+//            		if (aux.equals(null) && aux.equals("null")) {
+//            			
+//            		}
+//            		else {
+//            			Date data = formatter.parse(aux);
+//                        String auxString = formatter.format(data);
+//                        System.out.println(auxString);
+//            		}
+//            	
+//            		
+//            	}
+//                
+//            }
+            
+            long tempoInicial = System.nanoTime();
+            
+            //SelectionSort.SelectionStringDate(auxiliarDate, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayName, arrayLatitude, arrayLongitude);
+            SelectionSort.SelectSort(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            
+            
+            long tempoFinal = System.nanoTime();
+            
+            System.out.printf("SelectionSort Medio caso: %.3f ms%n", (tempoFinal - tempoInicial) / 1000000d); // Calculando o tempo gasto
 
             
-            //MERGE SORTE
-
-    	    String auxArrayName[] = new String[arrayName.length];
-    	    Integer auxArrayPrice[] = new Integer[arrayPrice.length];
-    	    Integer auxArrayId[] = new Integer[arrayId.length];
-    	    Integer auxArrayHostId[] = new Integer[arrayHostId.length];
-    	    Integer auxArrayMinimumNights[] = new Integer[arrayMinimumNights.length];
-    	    Integer auxArrayNumberOfReviews[] = new Integer[arrayNumberOfReviews.length];
-    	    Integer auxArrayCalculatedHostListingsCount[] = new Integer[arrayCalculatedHostListingsCount.length];
-    	    Integer auxArrayAvailability365[] = new Integer[arrayAvaiability365.length];
-    	    String auxArrayHostName[] = new String[arrayHostName.length];
-    	    String auxArrayNeighbourhoodGroup[] = new String[arrayNeighbourhoodGroup.length];
-    	    String auxArrayNeighbourhood[] = new String[arrayNeighbourhood.length];
-    	    String auxArrayRoomType[] = new String[arrayRoomType.length];
-    	    String auxArrayLastReview[] = new String[arrayLastReview.length];
-    	    Double auxArrayLatitude[] = new Double[arrayLatitude.length];
-    	    Double auxArrayLongitude[] = new Double[arrayLongitude.length];
-    	        
-    	        MergeSort.mergeSortString(arrayName, auxArrayName, arrayPrice, auxArrayPrice, arrayId, auxArrayId,
-    	        		arrayHostId, auxArrayHostId, arrayMinimumNights, auxArrayMinimumNights, arrayNumberOfReviews, 
-    	        		auxArrayNumberOfReviews, arrayCalculatedHostListingsCount, auxArrayCalculatedHostListingsCount,
-    	        		arrayAvaiability365, auxArrayAvailability365, arrayHostName, auxArrayHostName, arrayNeighbourhoodGroup,
-    	        		auxArrayNeighbourhoodGroup, arrayNeighbourhood, auxArrayNeighbourhood,  arrayRoomType, auxArrayRoomType,
-    	        		arrayLastReview, auxArrayLastReview, arrayLatitude, auxArrayLatitude, arrayLongitude, auxArrayLongitude, 0, arrayName.length-1);
-    	        
-                
-
-    	        
-    	    String auxArrayName2[] = new String[arrayName.length];
-    	    Integer auxArrayPrice2[] = new Integer[arrayPrice.length];
-    	    Integer auxArrayId2[] = new Integer[arrayId.length];
-    	    Integer auxArrayHostId2[] = new Integer[arrayHostId.length];
-    	    Integer auxArrayMinimumNights2[] = new Integer[arrayMinimumNights.length];
-    	    Integer auxArrayNumberOfReviews2[] = new Integer[arrayNumberOfReviews.length];
-    	    Integer auxArrayCalculatedHostListingsCount2[] = new Integer[arrayCalculatedHostListingsCount.length];
-    	    Integer auxArrayAvailability3652[] = new Integer[arrayAvaiability365.length];
-    	    String auxArrayHostName2[] = new String[arrayHostName.length];
-    	    String auxArrayNeighbourhoodGroup2[] = new String[arrayNeighbourhoodGroup.length];
-    	    String auxArrayNeighbourhood2[] = new String[arrayNeighbourhood.length];
-    	    String auxArrayRoomType2[] = new String[arrayRoomType.length];
-    	    String auxArrayLastReview2[] = new String[arrayLastReview.length];
-    	    Double auxArrayLatitude2[] = new Double[arrayLatitude.length];
-    	    Double auxArrayLongitude2[] = new Double[arrayLongitude.length];
-    	    
-    	    MergeSort.mergeSortString(arrayName, auxArrayName2, arrayPrice, auxArrayPrice2, arrayId, auxArrayId2,
-	        		arrayHostId, auxArrayHostId2, arrayMinimumNights, auxArrayMinimumNights2, arrayNumberOfReviews, 
-	        		auxArrayNumberOfReviews2, arrayCalculatedHostListingsCount, auxArrayCalculatedHostListingsCount2,
-	        		arrayAvaiability365, auxArrayAvailability3652, arrayHostName, auxArrayHostName2, arrayNeighbourhoodGroup,
-	        		auxArrayNeighbourhoodGroup2, arrayNeighbourhood, auxArrayNeighbourhood2,  arrayRoomType, auxArrayRoomType2,
-	        		arrayLastReview, auxArrayLastReview2, arrayLatitude, auxArrayLatitude2, arrayLongitude, auxArrayLongitude2, 0, arrayName.length-1);
-	        
+            tempoInicial = System.nanoTime();
+            SelectionSort.SelectSort(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            tempoFinal = System.nanoTime();
             
+            System.out.printf("SelectionSort Melhor caso: %.3f ms%n", (tempoFinal - tempoInicial) / 1000000d); // Calculando o tempo gasto
 
+            tempoInicial = System.nanoTime();
+            SelectionSort.SelectSortInverse(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            SelectionSort.SelectSort(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            tempoFinal = System.nanoTime();
             
-    	    String auxArrayName3[] = new String[arrayName.length];
-    	    Integer auxArrayPrice3[] = new Integer[arrayPrice.length];
-    	    Integer auxArrayId3[] = new Integer[arrayId.length];
-    	    Integer auxArrayHostId3[] = new Integer[arrayHostId.length];
-    	    Integer auxArrayMinimumNights3[] = new Integer[arrayMinimumNights.length];
-    	    Integer auxArrayNumberOfReviews3[] = new Integer[arrayNumberOfReviews.length];
-    	    Integer auxArrayCalculatedHostListingsCount3[] = new Integer[arrayCalculatedHostListingsCount.length];
-    	    Integer auxArrayAvailability3653[] = new Integer[arrayAvaiability365.length];
-    	    String auxArrayHostName3[] = new String[arrayHostName.length];
-    	    String auxArrayNeighbourhoodGroup3[] = new String[arrayNeighbourhoodGroup.length];
-    	    String auxArrayNeighbourhood3[] = new String[arrayNeighbourhood.length];
-    	    String auxArrayRoomType3[] = new String[arrayRoomType.length];
-    	    String auxArrayLastReview3[] = new String[arrayLastReview.length];
-    	    Double auxArrayLatitude3[] = new Double[arrayLatitude.length];
-    	    Double auxArrayLongitude3[] = new Double[arrayLongitude.length];
-    	    
-    	  SelectionSort.SelectionStringInverse(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-
-    	  MergeSort.mergeSortString(arrayName, auxArrayName3, arrayPrice, auxArrayPrice3, arrayId, auxArrayId3,
-	        		arrayHostId, auxArrayHostId3, arrayMinimumNights, auxArrayMinimumNights3, arrayNumberOfReviews, 
-	        		auxArrayNumberOfReviews3, arrayCalculatedHostListingsCount, auxArrayCalculatedHostListingsCount3,
-	        		arrayAvaiability365, auxArrayAvailability3653, arrayHostName, auxArrayHostName3, arrayNeighbourhoodGroup,
-	        		auxArrayNeighbourhoodGroup3, arrayNeighbourhood, auxArrayNeighbourhood3,  arrayRoomType, auxArrayRoomType3,
-	        		arrayLastReview, auxArrayLastReview3, arrayLatitude, auxArrayLatitude3, arrayLongitude, auxArrayLongitude3, 0, arrayName.length-1);
-	        
-            
-    	  
-    	    System.out.println("DEPOISSSSSSSSSSS");
-    	    System.out.println(arrayName[10000]);
-            System.out.println(arrayPrice[0]);
-            System.out.println(arrayId[0]);
-            System.out.println(arrayHostId[0]);
-            System.out.println(arrayMinimumNights[0]);
-            System.out.println(arrayNumberOfReviews[0]);
-            System.out.println(arrayCalculatedHostListingsCount[0]);
-            System.out.println(arrayAvaiability365[0]);
-            System.out.println(arrayHostName[0]);
-            System.out.println(arrayNeighbourhoodGroup[0]);
-            System.out.println(arrayNeighbourhood[0]);
-            System.out.println(arrayRoomType[0]);
-            System.out.println(arrayLastReview[0]);
-            System.out.println(arrayLatitude[0]);
-            System.out.println(arrayLongitude[0]);
-    	    
-    	    // QUICKSORT
-    	    		    
-    	    //QuickSort.quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
-    	        
-    	    // QUICKSORT MEDIANA DE 3
-    	    
-
-    	    //QuickMediana3.quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
-    	    //QuickMediana3.quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
-    	    //SelectionSort.SelectionStringInverse(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-    	    //QuickMediana3.quickSortStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
-
-            // COUTING SORT - NÃO
-    	    
-    	    // HEAP SORT
-    	    
-    	    //HeapSort.HeapStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-            
-    	    //HeapSort.HeapStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-    	    //SelectionSort.SelectionStringInverse(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-    	    //HeapSort.HeapStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
-            
+            System.out.printf("SelectionSort Pior caso: %.3f ms%n", (tempoFinal - tempoInicial) / 1000000d); // Calculando o tempo gasto
             
             
         } catch (IOException e) {

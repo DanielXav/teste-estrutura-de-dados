@@ -1,9 +1,11 @@
 package br.com.springboot.airbnbanalyses.sort;
 
+import java.util.Date;
+
 public class SelectionSort {
 
-	public static void SelectSort(int array[], int array2[], int array3[], int array4[], int array5[], int array6[], int array7[], String array8[],
-    		String array9[], String array10[], String array11[], String array12[], String array13[], double array14[], double array15[]) {
+	public static void SelectSort(Integer array[], Integer array2[], Integer array3[], Integer array4[], Integer array5[], Integer array6[], Integer array7[], String array8[],
+    		String array9[], String array10[], String array11[], String array12[], String array13[], Double array14[], Double array15[]) {
 		
 		for (int j = 0; j < array.length; j++) {
 			int j_menor = j;
@@ -63,8 +65,8 @@ public class SelectionSort {
 	  	}
 	}
 	
-	public static void SelectSortInverse(int array[], int array2[], int array3[], int array4[], int array5[], int array6[], int array7[], String array8[],
-    		String array9[], String array10[], String array11[], String array12[], String array13[], double array14[], double array15[]) {
+	public static void SelectSortInverse(Integer array[], Integer array2[], Integer array3[], Integer array4[], Integer array5[], Integer array6[], Integer array7[], String array8[],
+    		String array9[], String array10[], String array11[], String array12[], String array13[], Double array14[], Double array15[]) {
 		
 		for (int j = 0; j < array.length; j++) {
 			int j_maior = j;
@@ -248,6 +250,71 @@ public class SelectionSort {
 	            arrayLastReview[j_maior]=key13;
 	            arrayLatitude[j_maior]=key14;
 	            arrayLongitude[j_maior]=key15;
+//	            arrayReviewsPerMonth[j_menor]=key16;
+
+		  	}
+
+	}
+	
+	public static void SelectionStringDate(Date[] arrayLastReview, Integer[] arrayPrice, Integer[] arrayId, Integer[] arrayHostId, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvailability365 ,
+            String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayName, Double[] arrayLatitude, Double[] arrayLongitude){
+		
+		for (int j = 0; j < arrayLastReview.length; j++) {
+			int j_menor = j;
+				for (int k = j + 1; k < arrayLastReview.length; k++){
+					if (arrayLastReview[k].compareTo(arrayLastReview[j_menor])<0)
+						j_menor = k;
+					}
+				
+				Date key1 = arrayLastReview[j];
+				int key2 = arrayPrice[j];
+				int key3 = arrayId[j];
+				int key4 = arrayHostId[j];
+				int key5 = arrayMinimumNights[j];
+				int key6 = arrayNumberOfReviews[j];
+				int key7 = arrayCalculatedHostListingsCount[j];
+				int key8 = arrayAvailability365[j];
+	            String key9 = arrayHostName[j];
+	            String key10 = arrayNeighbourhoodGroup[j];
+	            String key11 = arrayNeighbourhood[j];
+	            String key12 = arrayRoomType[j];
+	            String key13 = arrayName[j];
+	            double key14 = arrayLatitude[j];
+	            double key15 = arrayLongitude[j];
+//	            double key16 = arrayReviewsPerMonth[j];
+				
+	            arrayLastReview[j] = arrayLastReview[j_menor];
+	            arrayPrice[j]=arrayPrice[j_menor];
+	            arrayId[j]=arrayId[j_menor];
+	            arrayHostId[j]=arrayHostId[j_menor];
+	            arrayMinimumNights[j]=arrayMinimumNights[j_menor];
+	            arrayNumberOfReviews[j]=arrayNumberOfReviews[j_menor];
+	            arrayCalculatedHostListingsCount[j]=arrayCalculatedHostListingsCount[j_menor];
+	            arrayAvailability365[j]=arrayAvailability365[j_menor];
+	            arrayHostName[j]=arrayHostName[j_menor];
+	            arrayNeighbourhoodGroup[j]=arrayNeighbourhoodGroup[j_menor];
+	            arrayNeighbourhood[j]=arrayNeighbourhood[j_menor];
+	            arrayRoomType[j]=arrayRoomType[j_menor];
+	            arrayName[j]=arrayName[j_menor];
+	            arrayLatitude[j]=arrayLatitude[j_menor];
+	            arrayLongitude[j]=arrayLongitude[j_menor];
+//	            arrayReviewsPerMonth[j]=arrayReviewsPerMonth[j_menor];
+				
+	            arrayLastReview[j_menor]=key1;
+				arrayPrice[j_menor]=key2;
+	            arrayId[j_menor]=key3;
+	            arrayHostId[j_menor]=key4;
+	            arrayMinimumNights[j_menor]=key5;
+	            arrayNumberOfReviews[j_menor]=key6;
+	            arrayCalculatedHostListingsCount[j_menor]=key7;
+	            arrayAvailability365[j_menor]=key8;
+	            arrayHostName[j_menor]=key9;
+	            arrayNeighbourhoodGroup[j_menor]=key10;
+	            arrayNeighbourhood[j_menor]=key11;
+	            arrayRoomType[j_menor]=key12;
+	            arrayName[j_menor]=key13;
+	            arrayLatitude[j_menor]=key14;
+	            arrayLongitude[j_menor]=key15;
 //	            arrayReviewsPerMonth[j_menor]=key16;
 
 		  	}
